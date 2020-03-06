@@ -1,27 +1,21 @@
 <template>
-  <div>
-    <div>
-      <div>
-        <v-simple-table v-if="parse_csv">
-          <template v-slot:default>
-            <thead>
-              <tr>
-                <th v-for="(header, i) in parse_header" :key="i">{{ header }}</th>
-              </tr>
-            </thead>
-            <tr v-for="(csv, i) in parse_csv" :key="i">
-              <td>{{formatTime(csv['Shave Time'])}}</td>
-              <td>{{csv['Last Name']}}</td>
-              <td>{{csv['First Name']}}</td>
-              <td>{{csv['Team Name']}}</td>
+  <v-simple-table v-if="parse_csv">
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th v-for="(header, i) in parse_header" :key="i">{{ header }}</th>
+        </tr>
+      </thead>
+      <tr v-for="(csv, i) in parse_csv" :key="i">
+        <td>{{formatTime(csv['Shave Time'])}}</td>
+        <td>{{csv['Last Name']}}</td>
+        <td>{{csv['First Name']}}</td>
+        <td>{{csv['Team Name']}}</td>
 
-              <!-- <td v-for="key in parse_header" :key="key">{{csv[key]}} - {{key}}</td> -->
-            </tr>
-          </template>
-        </v-simple-table>
-      </div>
-    </div>
-  </div>
+        <!-- <td v-for="key in parse_header" :key="key">{{csv[key]}} - {{key}}</td> -->
+      </tr>
+    </template>
+  </v-simple-table>
 </template>
 
 <script>
